@@ -1,7 +1,9 @@
 package com.myfirstapp;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +16,14 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // Make sure we're running on Honeycomb or higher to use ActionBar APIs
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            // For the main activity, make sure the app icon in the action bar
+            // does not behave as a button
+            ActionBar actionBar = getActionBar();
+            actionBar.setHomeButtonEnabled(false);
+        }
     }
 
 	@Override
