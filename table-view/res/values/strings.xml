@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="hello">Hello World</string>
+    <string name="app_name">Table View Example</string>
+    <string name="coluna1">Coluna 1</string>
+    <string name="botao1">Botao 1</string>
+</resources>
