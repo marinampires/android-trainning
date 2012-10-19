@@ -2,13 +2,10 @@ package com.tabbarexample;
 
 import android.app.TabActivity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TabHost;
-import android.widget.TabHost.OnTabChangeListener;
 
-@SuppressWarnings("deprecation")
-public class TabBarActivity extends TabActivity  implements OnTabChangeListener{
+public class TabBarActivity extends TabActivity{
 	TabHost tabHost;
 	
     /** Called when the activity is first created. */
@@ -36,24 +33,7 @@ public class TabBarActivity extends TabActivity  implements OnTabChangeListener{
         intent = new Intent().setClass(this, FourthActivity.class);
         spec = tabHost.newTabSpec("Fourth").setIndicator("Fourth").setContent(intent);
         tabHost.addTab(spec);
-        
-        
-        for(int i=0;i<tabHost.getTabWidget().getChildCount();i++){
-        	tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#8A4117"));
-		}
-        tabHost.getTabWidget().setCurrentTab(1);
-        tabHost.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#C35817"));
+
     }
-    
-    
-	@Override
-	public void onTabChanged(String tabId) {
-		System.out.println("entrou no on tab change. " + tabId);
-	    for(int i=0;i<tabHost.getTabWidget().getChildCount();i++){
-	    	System.out.println("entrou no for");
-			tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#8A4117"));
-		}
-	    System.out.println("Current tab: " + tabHost.getCurrentTab());
-		tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).setBackgroundColor(Color.parseColor("#C35817"));
-	}
+
 }
